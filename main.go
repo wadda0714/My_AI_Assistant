@@ -3,23 +3,24 @@ package main
 import (
 	"fmt"
 	"github.com/wadda0714/My_AI_Assistant/config"
+
 	"os/exec"
 	"time"
-        "github.com/BurntSushi/toml"
 
+	"github.com/BurntSushi/toml"
 )
 
 func main() {
-	var config config.Config
+	var config cfg.Config
 	_, err := toml.DecodeFile("config.toml", &config)
 	if err != nil {
-		fmt.Println("failed to read config.toml due to " + err)
+		fmt.Println("failed to read config.toml")
 
 		return
 	}
 
 	fmt.Println("Please enter your voice...")
-	cmd := exec.Command("rec", "--encoding", "signed-integer", "--bits", "16", "--channels", "1", "--rate", "16000", "--endian", "little", "--type", "wav", "test.wav"
+	cmd := exec.Command("rec", "--encoding", "signed-integer", "--bits", "16", "--channels", "1", "--rate", "16000", "--endian", "little", "--type", "wav", "test.wav")
 
 	//5 seconds to record
 	cmd.Start()
