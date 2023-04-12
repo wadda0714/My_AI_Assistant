@@ -1,10 +1,7 @@
 // config
 package config
 
-import (
-	"fmt"
-	"github.com/BurntSushi/toml"
-)
+import ()
 
 type Config struct {
 	Setting setting
