@@ -1,9 +1,0 @@
-[setting]
-Secret_API_key = ""
-version = "1.0.0"
-record_limit = 10
-[url]
-whisper_URL = "https://whisper.sh/api/v1/whisper"
-gpt3_URL = "https://api.openai.com/v1/engines/davinci/completions"
-VOICEBOX_URL = "https://voicebox.p.rapidapi.com/textToSpeech"
-
