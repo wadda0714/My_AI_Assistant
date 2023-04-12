@@ -1,7 +1,5 @@
 // config
-package config
-
-import ()
+package cfg
 
 type Config struct {
 	Setting setting
