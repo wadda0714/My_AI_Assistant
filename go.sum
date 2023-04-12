@@ -1,0 +1,4 @@
+github.com/BurntSushi/toml v1.2.1 h1:9F2/+DoOYIOksmaJFPw1tGFy1eDnIJXg+UHjuD8lTak=
+github.com/BurntSushi/toml v1.2.1/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbicEuybxQ=
+github.com/wadda0714/My_AI_Assistant/config v0.0.0-20230412061507-22790e5133ec h1:csRnQunApKS3kwGLu9gZi23uUavh2EZnH3d9fRPFaME=
+github.com/wadda0714/My_AI_Assistant/config v0.0.0-20230412061507-22790e5133ec/go.mod h1:mSG7SvlkNVQ5w6z5htMAIY4wxwgCgEsUtc3rbxLQJBs=

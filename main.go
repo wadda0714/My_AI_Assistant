@@ -5,6 +5,8 @@ import (
 	"github.com/wadda0714/My_AI_Assistant/config"
 	"os/exec"
 	"time"
+        "github.com/BurntSushi/toml"
+
 )
 
 func main() {
@@ -17,7 +19,7 @@ func main() {
 	}
 
 	fmt.Println("Please enter your voice...")
-	cmd := exec.Command("rec", "--encoding", "signed-integer", "--bits", "16", "--channels", "1", "--rate", "16000", "--endian", "little", "--type", "wav", "test.wav")
+	cmd := exec.Command("rec", "--encoding", "signed-integer", "--bits", "16", "--channels", "1", "--rate", "16000", "--endian", "little", "--type", "wav", "test.wav"
 
 	//5 seconds to record
 	cmd.Start()
