@@ -32,7 +32,6 @@ func main() {
 	fmt.Println("Sending to Whisper AI...(" + config.URL.Whisper_URL + ")")
 
 	//Create data to send to Whisper AI with curl
-	//curl -X POST -H "Content-Type: application/json" -d '{"audio": "test.wav"}' http://localhost:5000/recognize
 
 	return
 
