@@ -1,4 +1,6 @@
-module My_AI_assistant
+module github.com/wadda0714/My_AI_assistant
+
+
 
 go 1.20
 
