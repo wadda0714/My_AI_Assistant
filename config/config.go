@@ -2,16 +2,15 @@
 package cfg
 
 type Config struct {
-	Setting setting
-	URL     url
+	Setting Setting "toml:'setting'"
+	URL     URL     "toml:'url'"
 }
-type setting struct {
-	APIKey       string "toml:'SecretAPI_key'"
+type Setting struct {
 	Version      string "toml:'version'"
-	Record_Limit int    "toml:'record_limit'"
+	Record_Limit int    "toml:'record_limit'""
 }
 
-type url struct {
+type URL struct {
 	Whisper_URL  string "toml:'whisper_URL'"
 	GPT3_URL     string "toml:'gpt3_URL'"
 	VOICEBOX_URL string "toml:'VOICEVOX_URL'"

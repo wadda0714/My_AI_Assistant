@@ -7,4 +7,4 @@ require (
 	github.com/wadda0714/My_AI_Assistant v1.0.0
 )
 
-require github.com/wadda0714/My_AI_Assistant/config v0.0.0-20230412072055-1781ad72e415 // indirect
+require github.com/wadda0714/My_AI_Assistant/config v0.0.0-20230412092935-71ffcedd3d98 // indirect
