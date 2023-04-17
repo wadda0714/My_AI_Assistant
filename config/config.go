@@ -7,7 +7,7 @@ type Config struct {
 }
 type Setting struct {
 	Version      string "toml:'version'"
-	Record_Limit int    "toml:'record_limit'""
+	Record_Limit int    "toml:'record_limit'"
 }
 
 type URL struct {

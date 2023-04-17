@@ -1,4 +1,4 @@
-module github.com/wadda0714/My_AI_Assistant/record
+module github.com/wadda0714/My_AI_Assistant/util
 
 go 1.20
 
