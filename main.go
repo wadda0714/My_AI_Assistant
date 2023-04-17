@@ -4,10 +4,9 @@ import (
 	"fmt"
 	"github.com/wadda0714/My_AI_Assistant/config"
 
+	"github.com/wadda0714/My_AI_Assistant/util/http"
 	"github.com/wadda0714/My_AI_Assistant/util/record"
-
 	"os"
-	"os/exec"
 
 	"github.com/BurntSushi/toml"
 )
@@ -25,7 +24,7 @@ func main() {
 
 	//Record your voice
 
-	err = util.Record(config)
+	err = record.Record(config)
 
 	if err != nil {
 		fmt.Println("failed to record your voice", err)
@@ -33,20 +32,19 @@ func main() {
 		//Retry
 	}
 
-	//Send to Whisper AI with curl to use exec Commandd
+	//Send to Whisper AI
 	fmt.Println("Sending to Whisper AI...")
+
 	API_KEY := os.Getenv("API_Key")
 
-	cmd := exec.Command("curl", "https://api.whisper.com/v1/convert",
-		"-H", "Authorization: Bearer "+API_KEY, "-H",
-		"Content-Type:", "audio/wav", "-F", "model='whisper-1'", "-F", "file='test.wav'")
+	header_map := map[string]string{"Content-Type": "audio/wav", "Authorization": "Bearer " + API_KEY}
+	resp, err := http.MakeHTTPRequest(config.URL.Whisper_URL, header_map)
 
-	result, err := cmd.Output()
 	if err != nil {
 		fmt.Println("failed to send to Whisper AI:", err)
 	}
 	//Convert result to string and print
-	fmt.Println(string(result))
+	fmt.Println(resp.Body) // this is not working
 	return
 
 }
