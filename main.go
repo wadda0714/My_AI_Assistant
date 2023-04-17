@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"github.com/wadda0714/My_AI_Assistant/config"
 
+	//"bytes"
+	//	"encoding/json"
 	"github.com/wadda0714/My_AI_Assistant/util/http"
 	"github.com/wadda0714/My_AI_Assistant/util/record"
 	"os"
@@ -37,14 +39,15 @@ func main() {
 
 	API_KEY := os.Getenv("API_Key")
 
-	header_map := map[string]string{"Content-Type": "audio/wav", "Authorization": "Bearer " + API_KEY}
+	header_map := map[string]string{"Content-Type": "multipart/form-data", "Authorization": "Bearer " + API_KEY}
+
 	resp, err := http.MakeHTTPRequest(config.URL.Whisper_URL, header_map)
 
 	if err != nil {
-		fmt.Println("failed to send to Whisper AI:", err)
+		fmt.Println("failed to send to Whisper API:", err)
 	}
 	//Convert result to string and print
-	fmt.Println(resp.Body) // this is not working
+	fmt.Println(resp) // this is not working
 	return
 
 }
