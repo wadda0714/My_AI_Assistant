@@ -1,4 +1,4 @@
-package record
+package util
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func Record(cfg cfg.Config) error {
+func Record(cfg config.Config) error {
 
 	fmt.Println("Please enter your voice...")
 	cmd := exec.Command("rec", "--encoding", "signed-integer", "--bits", "16", "--channels", "1", "--rate", "16000", "--endian", "little", "--type", "wav", "test.wav")
