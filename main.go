@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/wadda0714/My_AI_Assistant/config"
 
-	"github.com/wadda0714/My_AI_Assistant/util"
+	"github.com/wadda0714/My_AI_Assistant/record"
 
 	"os"
 	"os/exec"
