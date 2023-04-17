@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"github.com/wadda0714/My_AI_Assistant/config"
 
+	"github.com/wadda0714/My_AI_Assistant/util"
+
 	"os"
 	"os/exec"
-	"time"
 
 	"github.com/BurntSushi/toml"
 )
@@ -20,20 +21,22 @@ func main() {
 
 		return
 	}
-	fmt.Println("Please enter your voice...")
-	cmd := exec.Command("rec", "--encoding", "signed-integer", "--bits", "16", "--channels", "1", "--rate", "16000", "--endian", "little", "--type", "wav", "test.wav")
 
-	//time.Duration(config.Setting.Record_Limit) seconds to record
+	//Record your voice
 
-	cmd.Start()
-	fmt.Println(config.Setting.Record_Limit)
-	time.Sleep(time.Duration(config.Setting.Record_Limit) * time.Second)
-	cmd.Process.Kill()
+	err = util.Record(config)
+
+	if err != nil {
+		fmt.Println("failed to record your voice", err)
+		fmt.Println("Retry...")
+		//Retry
+	}
+
 	//Send to Whisper AI with curl to use exec Commandd
 	fmt.Println("Sending to Whisper AI...")
 	API_KEY := os.Getenv("API_Key")
 
-	cmd = exec.Command("curl", "https://api.whisper.com/v1/convert",
+	cmd := exec.Command("curl", "https://api.whisper.com/v1/convert",
 		"-H", "Authorization: Bearer "+API_KEY, "-H",
 		"Content-Type:", "audio/wav", "-F", "model='whisper-1'", "-F", "file='test.wav'")
 
