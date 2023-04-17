@@ -1,5 +1,5 @@
 // config
-package cfg
+package config
 
 type Config struct {
 	Setting Setting "toml:'setting'"

@@ -1,8 +1,6 @@
 github.com/BurntSushi/toml v1.2.1 h1:9F2/+DoOYIOksmaJFPw1tGFy1eDnIJXg+UHjuD8lTak=
 github.com/BurntSushi/toml v1.2.1/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbicEuybxQ=
-github.com/wadda0714/My_AI_Assistant/config v0.0.0-20230417020616-28db37b5755c h1:gqDgKpvRVii5hyXVqiJQg/lEP73UD14WJ4trEqwMTow=
-github.com/wadda0714/My_AI_Assistant/config v0.0.0-20230417020616-28db37b5755c/go.mod h1:Q7zR4KIH4YbjEE55bC7IwfLuS+SXrftmyG9jkuPxEvs=
 github.com/wadda0714/My_AI_Assistant/config v0.0.0-20230417023702-630a0846e771 h1:CGeOXXr2TGyTyhg4818LoD7/gjhhnr7BbkJ5vv7JXM8=
 github.com/wadda0714/My_AI_Assistant/config v0.0.0-20230417023702-630a0846e771/go.mod h1:Q7zR4KIH4YbjEE55bC7IwfLuS+SXrftmyG9jkuPxEvs=
-github.com/wadda0714/My_AI_Assistant/util v0.0.0-20230417020616-28db37b5755c h1:0GrJWTRB49IlKUr21nmTXucLH1TRYyRTlrs3ZNq66iA=
-github.com/wadda0714/My_AI_Assistant/util v0.0.0-20230417020616-28db37b5755c/go.mod h1:taQRur/uOSAHlFyQoHSjKHKNPBJRqKc8Z+fM4LkfJLU=
+github.com/wadda0714/My_AI_Assistant/config v0.0.0-20230417030719-0d669e41f2fc h1:eBjMlupxnowrOJAYuqITYCykA6DiPrE5Eygv8v+4FhQ=
+github.com/wadda0714/My_AI_Assistant/config v0.0.0-20230417030719-0d669e41f2fc/go.mod h1:Q7zR4KIH4YbjEE55bC7IwfLuS+SXrftmyG9jkuPxEvs=

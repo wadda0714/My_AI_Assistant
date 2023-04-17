@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/wadda0714/My_AI_Assistant/config"
 
-	"github.com/wadda0714/My_AI_Assistant/util"
+	//"github.com/wadda0714/My_AI_Assistant/util"
 
 	"os"
 	"os/exec"
@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	var config cfg.Config
+	var config config.Config
 	fmt.Println("Reading config.toml...")
 	_, err := toml.DecodeFile("config.toml", &config)
 	if err != nil {
@@ -24,7 +24,7 @@ func main() {
 
 	//Record your voice
 
-	err = util.Record(config)
+	//err = util.Record(config)
 
 	if err != nil {
 		fmt.Println("failed to record your voice", err)
