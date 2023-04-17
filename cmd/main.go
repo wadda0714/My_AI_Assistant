@@ -16,7 +16,7 @@ import (
 func main() {
 	var config config.Config
 	fmt.Println("Reading config.toml...")
-	_, err := toml.DecodeFile("config.toml", &config)
+	_, err := toml.DecodeFile("../config.toml", &config)
 	if err != nil {
 		fmt.Println("failed to read config.toml")
 
