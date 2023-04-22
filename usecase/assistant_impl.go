@@ -1,0 +1,1 @@
+//infraのメソッドをinterfaceを介して呼び出す
