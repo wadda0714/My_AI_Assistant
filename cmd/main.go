@@ -5,7 +5,7 @@ import (
 	"github.com/wadda0714/My_AI_Assistant/config"
 
 	//"bytes"
-	//	"encoding/json"
+	//"encoding/json"
 	"github.com/wadda0714/My_AI_Assistant/util/http"
 	"github.com/wadda0714/My_AI_Assistant/util/record"
 	"os"
@@ -44,7 +44,7 @@ func main() {
 	resp, err := http.MakeHTTPRequest(config.URL.Whisper_URL, header_map)
 
 	if err != nil {
-		fmt.Println("failed to send to Whisper API:", err)
+		fmt.Println("failed to send to Whisper AI:", err)
 	}
 	//Convert result to string and print
 	fmt.Println(resp) // this is not working
