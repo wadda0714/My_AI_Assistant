@@ -14,7 +14,7 @@ type Setting struct {
 type URL struct {
 	Whisper_URL  string "toml:'whisper_URL'"
 	GPT3_URL     string "toml:'gpt3_URL'"
-	VOICEBOX_URL string "toml:'VOICEVOX_URL'"
+	VOICEVOX_URL string "toml:'VOICEVOX_URL'"
 }
 type Whisper struct {
 	URL         string "toml:'URL'"

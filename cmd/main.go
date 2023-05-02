@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/wadda0714/My_AI_Assistant/config"
 
+	"github.com/wadda0714/My_AI_Assistant/config"
+	"github.com/wadda0714/My_AI_Assistant/usecase/input"
+
+	"github.com/wadda0714/My_AI_Assistant/usecase"
 	//"bytes"
 	//"encoding/json"
-	"github.com/wadda0714/My_AI_Assistant/util/http"
-	"github.com/wadda0714/My_AI_Assistant/util/record"
-	"os"
 
 	"github.com/BurntSushi/toml"
 )
@@ -24,30 +24,34 @@ func main() {
 	}
 	fmt.Println(config.URL.Whisper_URL)
 
-	//Record your voice
+	Assistant := usecase.NewAssistant(config)
+	res, err := Assistant.TalkToAssistant(&input.TalkToAssistantInput{Question: "こんにちは"})
+	fmt.Println(res.FilePath)
 
-	err = record.Record(config)
+	/*	//Record your voice
 
-	if err != nil {
-		fmt.Println("failed to record your voice", err)
-		fmt.Println("Retry...")
-		//Retry
-	}
+		err = record.Record(config)
 
-	//Send to Whisper AI
-	fmt.Println("Sending to Whisper AI...")
+		if err != nil {
+			fmt.Println("failed to record your voice", err)
+			fmt.Println("Retry...")
+			//Retry
+		}
 
-	API_KEY := os.Getenv("API_Key")
+		//Send to Whisper AI
+		fmt.Println("Sending to Whisper AI...")
 
-	header_map := map[string]string{"Content-Type": "multipart/form-data", "Authorization": "Bearer " + API_KEY}
+		API_KEY := os.Getenv("API_Key")
 
-	resp, err := http.MakeHTTPRequest(config.URL.Whisper_URL, header_map)
+		header_map := map[string]string{"Content-Type": "multipart/form-data", "Authorization": "Bearer " + API_KEY}
 
-	if err != nil {
-		fmt.Println("failed to send to Whisper AI:", err)
-	}
-	//Convert result to string and print
-	fmt.Println(resp) // this is not working
+		resp, err := http.MakeHTTPRequest(config.URL.Whisper_URL, header_map)
+
+		if err != nil {
+			fmt.Println("failed to send to Whisper AI:", err)
+		}
+		//Convert result to string and print
+		fmt.Println(resp) // this is not working */
 	return
 
 }
