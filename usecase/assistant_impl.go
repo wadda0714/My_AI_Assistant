@@ -2,7 +2,10 @@
 package usecase
 
 import (
+	"fmt"
+
 	"github.com/wadda0714/My_AI_Assistant/config"
+	"github.com/wadda0714/My_AI_Assistant/infra/query"
 	"github.com/wadda0714/My_AI_Assistant/usecase/input"
 	"github.com/wadda0714/My_AI_Assistant/usecase/output"
 )
@@ -24,6 +27,13 @@ func NewAssistant(cfg config.Config) Assistant {
 }
 
 func (*assistant) TalkToAssistant(p *input.TalkToAssistantInput) (*output.TalkToAssistantOutput, error) {
+
+	p := NewAssistantQuery()
+	res, err := p.GetGPTResponse("")
+	if err != nil {
+		return nil, err
+	}
+	fmt.Println(res)
 	return &output.TalkToAssistantOutput{
 		FilePath: "test",
 	}, nil
