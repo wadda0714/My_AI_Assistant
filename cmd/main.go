@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"os"
 
+	"context"
 	"github.com/wadda0714/My_AI_Assistant/config"
 	"github.com/wadda0714/My_AI_Assistant/usecase/input"
 
@@ -11,9 +13,11 @@ import (
 	//"encoding/json"
 
 	"github.com/BurntSushi/toml"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	ctx := context.Background()
 	var config config.Config
 	fmt.Println("Reading config.toml...")
 	_, err := toml.DecodeFile("../config.toml", &config)
@@ -24,8 +28,16 @@ func main() {
 	}
 	fmt.Println(config.URL.Whisper_URL)
 
-	Assistant := usecase.NewAssistant(config)
-	res, err := Assistant.TalkToAssistant(&input.TalkToAssistantInput{Question: "こんにちは"})
+	//Read .env file
+	err = godotenv.Load("../.env")
+	if err != nil {
+		fmt.Println("failed to read .env file")
+		return
+	}
+	APIKey := os.Getenv("API_Key")
+
+	Assistant := usecase.GeneratedInitializeAssistantDI()
+	res, err := Assistant.TalkToAssistant(ctx, &input.TalkToAssistantInput{APIKey: APIKey})
 	fmt.Println(res.FilePath)
 
 	/*	//Record your voice
