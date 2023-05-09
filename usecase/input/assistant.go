@@ -5,5 +5,5 @@ import (
 )
 
 type TalkToAssistantInput struct {
-	Question string
+	APIKey string
 }

@@ -1,6 +1,8 @@
 package usecase
 
 import (
+	"context"
+
 	"github.com/wadda0714/My_AI_Assistant/usecase/input"
 	"github.com/wadda0714/My_AI_Assistant/usecase/output"
 )
@@ -10,5 +12,5 @@ import (
 
 // userがやりたい処理の全体の流れであり、細かい処理はinrfaに任せる(infraに依存しない)
 type Assistant interface {
-	TalkToAssistant(*input.TalkToAssistantInput) (*output.TalkToAssistantOutput, error)
+	TalkToAssistant(context.Context, *input.TalkToAssistantInput) (*output.TalkToAssistantOutput, error)
 }

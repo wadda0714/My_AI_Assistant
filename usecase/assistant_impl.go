@@ -2,39 +2,38 @@
 package usecase
 
 import (
-	"fmt"
+	"context"
+	//	"fmt"
 
-	"github.com/wadda0714/My_AI_Assistant/config"
-	"github.com/wadda0714/My_AI_Assistant/infra/query"
+	//	"github.com/wadda0714/My_AI_Assistant/config"
+	"github.com/wadda0714/My_AI_Assistant/domain/model"
+	"github.com/wadda0714/My_AI_Assistant/domain/query"
 	"github.com/wadda0714/My_AI_Assistant/usecase/input"
 	"github.com/wadda0714/My_AI_Assistant/usecase/output"
 )
 
 type assistant struct {
-	whisperURL  string
-	gpt3URL     string
-	voicevoxURL string
-	recordLimit int
+	assistantQuery query.Assistant
 }
 
-func NewAssistant(cfg config.Config) Assistant {
+func NewAssistant(
+	assistantQuery query.Assistant,
+) Assistant {
 	return &assistant{
-		whisperURL:  cfg.URL.Whisper_URL,
-		gpt3URL:     cfg.URL.GPT3_URL,
-		voicevoxURL: cfg.URL.VOICEVOX_URL,
-		recordLimit: cfg.Setting.Record_Limit,
+		assistantQuery,
 	}
 }
 
-func (*assistant) TalkToAssistant(p *input.TalkToAssistantInput) (*output.TalkToAssistantOutput, error) {
+func (u *assistant) TalkToAssistant(ctx context.Context, p *input.TalkToAssistantInput) (*output.TalkToAssistantOutput, error) {
 
-	p := NewAssistantQuery()
-	res, err := p.GetGPTResponse("")
-	if err != nil {
+	var AssistantDomain *model.GPTResponse
+	var err error
+	if AssistantDomain, err = u.assistantQuery.GetGPTResponse(ctx, p.APIKey); err != nil {
 		return nil, err
+
 	}
-	fmt.Println(res)
+
 	return &output.TalkToAssistantOutput{
-		FilePath: "test",
+		FilePath: AssistantDomain.Text,
 	}, nil
 }
